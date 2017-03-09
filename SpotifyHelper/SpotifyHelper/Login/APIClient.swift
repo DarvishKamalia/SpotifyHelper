@@ -23,6 +23,9 @@ class APIClient {
             URLQueryItem(name: "response_type", value: "token"),
             URLQueryItem(name: "redirect_uri", value: "DropsSpotifyHelper://")
         ]
-        UIApplication.shared.open(URL(string: "dropsspotifyhelper://")!)
+        
+        if let url = components?.url {
+            UIApplication.shared.open(url)
+        }
     }
 }

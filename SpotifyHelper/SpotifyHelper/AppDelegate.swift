@@ -42,7 +42,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        // The Spotify API performs a callback with the access token as a query string embedded in a hash fragment, 
+        // hence we need to do some manual parsing of the fragment
+        if let fragment = URLComponents(string: url.absoluteString)?.fragment {
+            let rawParameters = fragment.components(separatedBy: "&")
+            var processedParameters: [String : String] = [:]
+            rawParameters.forEach() { parameter in
+                let keyValuePair = parameter.components(separatedBy: "=")
+                if keyValuePair.count == 2 {
+                    processedParameters[keyValuePair[0]] = keyValuePair[1]
+                }
+            }
+            print (processedParameters["access_token"])
+        }
         
+        
+        
+        return true
     }
 
 }
