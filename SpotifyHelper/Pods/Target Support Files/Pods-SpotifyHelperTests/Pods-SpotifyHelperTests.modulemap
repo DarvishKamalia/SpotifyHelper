@@ -1,0 +1,6 @@
+framework module Pods_SpotifyHelperTests {
+  umbrella header "Pods-SpotifyHelperTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
