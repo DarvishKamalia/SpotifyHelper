@@ -11,7 +11,7 @@ class MePlaylistAlbumViewController: UITabBarController {
     init(accessToken: String) {
         client = MainAPIClient(accessToken: accessToken)
         super.init(nibName: nil, bundle: nil)
-        
+        self.viewControllers = []
 //        client.fetchTracks() { tracks in
 //            self.client.fetchAlbums() { albums in
 //                let trackVC = ListItemViewController(items: tracks)
@@ -26,16 +26,16 @@ class MePlaylistAlbumViewController: UITabBarController {
         
         client.fetch(request: trackFetchRequest) { tracks in
             let trackVC = ListItemViewController(items: tracks)
-            self.viewControllers?.append(trackVC)
             trackVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-        }
-        
-        let albumFetchRequest = FetchRequest<Album>(startIndex: 0, offset: 0)
-        
-        client.fetch(request: albumFetchRequest) { albums in
-            let albumVC = ListItemViewController(items: albums)
-            self.viewControllers?.append(albumVC)
-            albumVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+            
+            let albumFetchRequest = FetchRequest<Album>(startIndex: 0, offset: 0)
+            
+            self.client.fetch(request: albumFetchRequest) { albums in
+                let albumVC = ListItemViewController(items: albums)
+                albumVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+                self.viewControllers = [trackVC, albumVC]
+            }
+
         }
     }
     
