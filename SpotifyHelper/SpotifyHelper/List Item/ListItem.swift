@@ -11,11 +11,4 @@ protocol ListItem {
 enum ListItemDetailType {
     case none
     case image (imageURL: String)
-    
-    var cellIdentifier: String {
-        switch (self) {
-            case .none: return "listItemCellStandard"
-            case .image: return "listItemCellImage"
-        }
-    }
 }

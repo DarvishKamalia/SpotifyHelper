@@ -29,15 +29,9 @@
 		A8939D481E72161800871591 /* Album .swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D471E72161800871591 /* Album .swift */; };
 		A8939D491E72161800871591 /* Album .swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D471E72161800871591 /* Album .swift */; };
 		A8939D4A1E72161800871591 /* Album .swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D471E72161800871591 /* Album .swift */; };
-		A8939D551E722D4500871591 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D541E722D4500871591 /* ListItemCell.swift */; };
-		A8939D561E722D4500871591 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D541E722D4500871591 /* ListItemCell.swift */; };
-		A8939D571E722D4500871591 /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D541E722D4500871591 /* ListItemCell.swift */; };
 		A8939D5B1E722D6700871591 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D581E722D6700871591 /* ListItem.swift */; };
 		A8939D5C1E722D6700871591 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D581E722D6700871591 /* ListItem.swift */; };
 		A8939D5D1E722D6700871591 /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D581E722D6700871591 /* ListItem.swift */; };
-		A8939D5E1E722D6700871591 /* ListItemCellStandard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8939D591E722D6700871591 /* ListItemCellStandard.xib */; };
-		A8939D5F1E722D6700871591 /* ListItemCellStandard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8939D591E722D6700871591 /* ListItemCellStandard.xib */; };
-		A8939D601E722D6700871591 /* ListItemCellStandard.xib in Resources */ = {isa = PBXBuildFile; fileRef = A8939D591E722D6700871591 /* ListItemCellStandard.xib */; };
 		A8939D611E722D6700871591 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D5A1E722D6700871591 /* ListItemViewController.swift */; };
 		A8939D621E722D6700871591 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D5A1E722D6700871591 /* ListItemViewController.swift */; };
 		A8939D631E722D6700871591 /* ListItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8939D5A1E722D6700871591 /* ListItemViewController.swift */; };
@@ -93,9 +87,7 @@
 		A8939D3A1E71EA1E00871591 /* MainAPIClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainAPIClient.swift; path = "Main Flow/MainAPIClient.swift"; sourceTree = "<group>"; };
 		A8939D3F1E72106300871591 /* Track.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Track.swift; path = Data/Track.swift; sourceTree = "<group>"; };
 		A8939D471E72161800871591 /* Album .swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Album .swift"; path = "Data/Album .swift"; sourceTree = "<group>"; };
-		A8939D541E722D4500871591 /* ListItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemCell.swift; path = "List Item/ListItemCell.swift"; sourceTree = "<group>"; };
 		A8939D581E722D6700871591 /* ListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItem.swift; path = "List Item/ListItem.swift"; sourceTree = "<group>"; };
-		A8939D591E722D6700871591 /* ListItemCellStandard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ListItemCellStandard.xib; path = "List Item/ListItemCellStandard.xib"; sourceTree = "<group>"; };
 		A8939D5A1E722D6700871591 /* ListItemViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ListItemViewController.swift; path = "List Item/ListItemViewController.swift"; sourceTree = "<group>"; };
 		A8939D641E722D7C00871591 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = Login/LoginViewController.swift; sourceTree = "<group>"; };
 		A8939D681E722D9600871591 /* Login.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Login.storyboard; path = Login/Login.storyboard; sourceTree = "<group>"; };
@@ -231,9 +223,7 @@
 			isa = PBXGroup;
 			children = (
 				A8939D581E722D6700871591 /* ListItem.swift */,
-				A8939D591E722D6700871591 /* ListItemCellStandard.xib */,
 				A8939D5A1E722D6700871591 /* ListItemViewController.swift */,
-				A8939D541E722D4500871591 /* ListItemCell.swift */,
 			);
 			name = "List Item";
 			sourceTree = "<group>";
@@ -372,7 +362,6 @@
 				A8939D691E722D9600871591 /* Login.storyboard in Resources */,
 				A88985231E711F3A00D73420 /* LaunchScreen.storyboard in Resources */,
 				A88985201E711F3A00D73420 /* Assets.xcassets in Resources */,
-				A8939D5E1E722D6700871591 /* ListItemCellStandard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,7 +370,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8939D6A1E722D9600871591 /* Login.storyboard in Resources */,
-				A8939D5F1E722D6700871591 /* ListItemCellStandard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,7 +378,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A8939D6B1E722D9600871591 /* Login.storyboard in Resources */,
-				A8939D601E722D6700871591 /* ListItemCellStandard.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,7 +529,6 @@
 				A8939D481E72161800871591 /* Album .swift in Sources */,
 				A8939D611E722D6700871591 /* ListItemViewController.swift in Sources */,
 				A8939D5B1E722D6700871591 /* ListItem.swift in Sources */,
-				A8939D551E722D4500871591 /* ListItemCell.swift in Sources */,
 				A88985191E711F3A00D73420 /* AppDelegate.swift in Sources */,
 				A8939D371E71E9B600871591 /* MePlaylistAlbumViewController.swift in Sources */,
 				A8939D3B1E71EA1E00871591 /* MainAPIClient.swift in Sources */,
@@ -565,7 +551,6 @@
 				A889852E1E711F3B00D73420 /* SpotifyHelperTests.swift in Sources */,
 				A8939D2C1E712A9F00871591 /* LoginAPIClient.swift in Sources */,
 				A8939D661E722D7C00871591 /* LoginViewController.swift in Sources */,
-				A8939D561E722D4500871591 /* ListItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,7 +567,6 @@
 				A88985391E711F3B00D73420 /* SpotifyHelperUITests.swift in Sources */,
 				A8939D2D1E712A9F00871591 /* LoginAPIClient.swift in Sources */,
 				A8939D671E722D7C00871591 /* LoginViewController.swift in Sources */,
-				A8939D571E722D4500871591 /* ListItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

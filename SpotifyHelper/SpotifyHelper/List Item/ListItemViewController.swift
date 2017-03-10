@@ -21,6 +21,13 @@ class ListItemViewController: UITableViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
+    // MARK: - ViewController lifecycle 
+    
+    override func viewDidLoad() {
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Constants.cellIdentifier)
+    }
+    
     // MARK: - TableView data source methods 
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -32,13 +39,19 @@ class ListItemViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let identifier = Constants.cellIdentifier
+        let cell = tableView.dequeueReusableCell(withIdentifier: identifier) ?? UITableViewCell(style: .subtitle, reuseIdentifier: Constants.cellIdentifier)
+        
         let item = items[indexPath.row]
-        let identifier = item.detailType.cellIdentifier
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier) as? ListItemCell else {
-            fatalError("Could not create cell for list view controller")
+        
+        cell.textLabel?.text = item.titleString
+        cell.detailTextLabel?.text = item.subtitleString
+        
+        switch item.detailType {
+            case .image(let imageURL): cell.imageView?.image = UIImage(named: imageURL)
+            case .none: break
         }
-            
-        cell.configure(withItem: items[indexPath.row])
+        
         return cell
     }
     
