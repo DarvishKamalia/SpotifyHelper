@@ -5,6 +5,11 @@ struct Album : ListItem {
     let artistName: String
     let albumArtURL: String
     
+    init(name: String, artistName: String, albumArtURL: String) {
+        self.name = name
+        self.artistName = artistName
+        self.albumArtURL = albumArtURL
+    }
     // MARK: - ListItem properties 
     
     var titleString: String {

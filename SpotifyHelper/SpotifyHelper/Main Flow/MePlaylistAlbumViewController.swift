@@ -1,19 +1,26 @@
 import UIKit
 
-class MePlaylistAlbumViewController: UIViewController {
+class MePlaylistAlbumViewController: UITabBarController {
     
     // MARK: - Properties
     
     let client: MainAPIClient
     
-    let tableView: UITableView
-    
     // MARK: - Initialization
     
     init(accessToken: String) {
         client = MainAPIClient(accessToken: accessToken)
-        tableView = UITableView(frame: .zero, style: .grouped)
         super.init(nibName: nil, bundle: nil)
+        
+        client.fetchTracks() { tracks in
+            self.client.fetchAlbums() { albums in
+                let trackVC = ListItemViewController(items: tracks)
+                let albumVC = ListItemViewController(items: albums)
+                self.viewControllers = [trackVC, albumVC]
+                trackVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+                albumVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -25,6 +32,4 @@ class MePlaylistAlbumViewController: UIViewController {
     override func viewDidLoad() {
         
     }
-    
-    
 }
