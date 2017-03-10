@@ -2,14 +2,17 @@ import Foundation
 
 struct Album : ListItem {
     let name: String
-    let artistName: String
+    let artists: [String]
     let albumArtURL: String
     
-    init(name: String, artistName: String, albumArtURL: String) {
+    // MARK: - Initialization
+    
+    init(name: String, artists: [String], albumArtURL: String) {
         self.name = name
-        self.artistName = artistName
+        self.artists = artists
         self.albumArtURL = albumArtURL
     }
+    
     // MARK: - ListItem properties 
     
     var titleString: String {
@@ -17,7 +20,7 @@ struct Album : ListItem {
     }
     
     var subtitleString: String {
-        return artistName
+        return artists.joined(separator: ", ")
     }
     
     var detailType: ListItemDetailType {
