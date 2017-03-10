@@ -53,7 +53,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     processedParameters[keyValuePair[0]] = keyValuePair[1]
                 }
             }
-            print (processedParameters["access_token"])
+            if let accessToken = processedParameters["access_token"] {
+                let homeViewController = MePlaylistAlbumViewController(accessToken: accessToken)
+                let navigationController = UINavigationController(rootViewController: homeViewController)
+                window?.rootViewController?.present(navigationController, animated: false)
+            }
         }
         
         
