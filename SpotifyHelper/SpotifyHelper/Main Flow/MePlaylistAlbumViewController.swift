@@ -11,17 +11,7 @@ class MePlaylistAlbumViewController: UITabBarController {
     init(accessToken: String) {
         client = MainAPIClient(accessToken: accessToken)
         super.init(nibName: nil, bundle: nil)
-        self.viewControllers = []
-//        client.fetchTracks() { tracks in
-//            self.client.fetchAlbums() { albums in
-//                let trackVC = ListItemViewController(items: tracks)
-//                let albumVC = ListItemViewController(items: albums)
-//                self.viewControllers = [trackVC, albumVC]
-//                trackVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
-//                albumVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
-//            }
-//        }
-    
+        
         let trackFetchRequest = FetchRequest<Track>(startIndex: 0, offset: 0)
         
         client.fetch(request: trackFetchRequest) { tracks in
@@ -46,6 +36,12 @@ class MePlaylistAlbumViewController: UITabBarController {
     // MARK: - ViewController lifecycle 
     
     override func viewDidLoad() {
+        let navigationButton = UIBarButtonItem(title: "Search", style: .plain, target: self, action: #selector(MePlaylistAlbumViewController.searchButtonTapped))
+    }
+    
+    // MARK: - Actions 
+    
+    func searchButtonTapped() {
         
     }
 }

@@ -3,8 +3,6 @@ import SwiftyJSON
 
 fileprivate struct Constants {
     static let baseURL = "https://api.spotify.com/v1/me/"
-    static let tracksEndpoint = "tracks"
-    static let albumsEndpoint = "albums"
 }
 
 /// Handles API calls for the main flow, including fetching user playlist, albums
@@ -17,7 +15,7 @@ class MainAPIClient  {
     }
     
     func fetch<T : Fetchable>(request: FetchRequest<T>, completion: @escaping (([T]) -> Void)) {
-        Alamofire.request(Constants.baseURL + Constants.tracksEndpoint, method: .get, headers: ["authorization" : "Bearer " + accessToken])
+        Alamofire.request(Constants.baseURL + T.fetchEndpoint, method: .get, headers: ["authorization" : "Bearer " + accessToken])
             .response { response in
                 if
                     let data = response.data,
@@ -31,20 +29,19 @@ class MainAPIClient  {
 
 /// A wrapper that holds request metadata 
 struct FetchRequest<T : Fetchable> {
+    // Can be used for paginated fetches
     let startIndex: Int
     let offset: Int
 }
 
 /// Conformers can be fetched from endpoints 
 protocol Fetchable {
-    var fetchEndpoint: String { get }
+    static var fetchEndpoint: String { get }
     init?(withJSON json: JSON)
 }
 
 extension Track : Fetchable {
-    var fetchEndpoint: String {
-        return "tracks"
-    }
+    static var fetchEndpoint = "tracks"
     
     init? (withJSON json: JSON) {
         let json = json["track"] //We ignore the other metadata in the json for now
@@ -66,11 +63,10 @@ extension Track : Fetchable {
 }
 
 extension Album : Fetchable {
-    var fetchEndpoint: String {
-        return "albums"
-    }
+    static var fetchEndpoint = "albums"
     
     init? (withJSON json: JSON) {
+        let json = json["album"] 
         guard
             let name = json["name"].string,
             let artists = json["artists"].array?.map({$0["name"].string }).flatMap({ $0 }),
