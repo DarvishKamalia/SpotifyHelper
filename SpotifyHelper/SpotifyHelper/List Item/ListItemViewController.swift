@@ -86,4 +86,16 @@ class ListItemViewController: UITableViewController {
             delegate?.list(didScrollToBottom: self)
         }
     }
+    
+    // MARK: - Helpers
+    
+    func startBottomSpinner() {
+        let spinner = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        tableView.tableFooterView = spinner
+        spinner.startAnimating()
+    }
+    
+    func stopBottomSpinner() {
+        tableView.tableFooterView = nil
+    }
 }

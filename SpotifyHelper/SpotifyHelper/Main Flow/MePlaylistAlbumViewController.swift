@@ -91,14 +91,18 @@ class MePlaylistAlbumViewController: UITabBarController, ListItemViewControllerD
     func list(didScrollToBottom vc: ListItemViewController) {
         if vc == tracksVC {
             let request = FetchRequest<Track>(offset: vc.items.count)
+            vc.startBottomSpinner()
             client.fetch(request: request) { tracks in
                 vc.add(items: tracks)
+                vc.stopBottomSpinner()
             }
         }
         else if vc == albumVC {
             let request = FetchRequest<Album>(offset: vc.items.count)
+            vc.startBottomSpinner()
             client.fetch(request: request) { albums in
                 vc.add(items: albums)
+                vc.stopBottomSpinner()
             }
         }
     }
