@@ -4,11 +4,26 @@ fileprivate struct Constants {
     static let cellIdentifier = "ListItemCell"
 }
 
+protocol ListItemViewControllerDelegate {
+    mutating func list(didScrollToBottom vc: ListItemViewController)
+    func list(didSelectItem item: ListItem)
+}
+
 class ListItemViewController: UITableViewController {
     
     // MARK: - Properties 
     
-    let items: [ListItem]
+    var items: [ListItem] {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
+    func add(items: [ListItem]) {
+        self.items += items
+    }
+    
+    var delegate: ListItemViewControllerDelegate? = nil
     
     // MARK: - Initialization 
     
@@ -38,6 +53,8 @@ class ListItemViewController: UITableViewController {
         
         cell.textLabel?.text = item.titleString
         cell.detailTextLabel?.text = item.subtitleString
+        cell.textLabel?.font = UIFont(name: "Avenir", size: 18)
+        cell.detailTextLabel?.font = UIFont(name: "Avenir-Light", size: 12)
         
         switch item.detailType {
             case .image(let imageURL): cell.imageView?.image = UIImage(named: imageURL)
@@ -45,5 +62,28 @@ class ListItemViewController: UITableViewController {
         }
         
         return cell
+    }
+    
+    // MARK: - TableView delegate methods 
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.list(didSelectItem: items[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    // MARK: - Scrolling 
+    
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        // Check if we are scrolled to the bottom, and load more rows if required
+        let offset:CGPoint = scrollView.contentOffset
+        let bounds:CGRect = scrollView.bounds
+        let size:CGSize = scrollView.contentSize
+        let inset:UIEdgeInsets = scrollView.contentInset
+        let y:CGFloat = offset.y + bounds.size.height - inset.bottom
+        let h:CGFloat = size.height
+        let reload_distance:CGFloat = 10
+        if(y > h + reload_distance) {
+            delegate?.list(didScrollToBottom: self)
+        }
     }
 }

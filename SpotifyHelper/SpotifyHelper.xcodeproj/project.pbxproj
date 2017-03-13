@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		2E9FD662CB0C560E3B9140BB /* Pods_SpotifyHelperUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20730019EA52DB8A0339365F /* Pods_SpotifyHelperUITests.framework */; };
 		9860BDF81178AAFDF91A82B8 /* Pods_SpotifyHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65A365773A76B7C1667F8B98 /* Pods_SpotifyHelper.framework */; };
+		A8893C7A1E7627E300C14FD3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C791E7627E300C14FD3 /* Playlist.swift */; };
+		A8893C7B1E7627E300C14FD3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C791E7627E300C14FD3 /* Playlist.swift */; };
+		A8893C7C1E7627E300C14FD3 /* Playlist.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C791E7627E300C14FD3 /* Playlist.swift */; };
+		A8893C7E1E762E0000C14FD3 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C7D1E762E0000C14FD3 /* Fetchable.swift */; };
+		A8893C7F1E762E0000C14FD3 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C7D1E762E0000C14FD3 /* Fetchable.swift */; };
+		A8893C801E762E0000C14FD3 /* Fetchable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8893C7D1E762E0000C14FD3 /* Fetchable.swift */; };
 		A88985191E711F3A00D73420 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A88985181E711F3A00D73420 /* AppDelegate.swift */; };
 		A88985201E711F3A00D73420 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A889851F1E711F3A00D73420 /* Assets.xcassets */; };
 		A88985231E711F3A00D73420 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A88985211E711F3A00D73420 /* LaunchScreen.storyboard */; };
@@ -69,6 +75,8 @@
 		65A365773A76B7C1667F8B98 /* Pods_SpotifyHelper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpotifyHelper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6EBBADF3C4FE7F475C194AFF /* Pods-SpotifyHelperUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyHelperUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyHelperUITests/Pods-SpotifyHelperUITests.release.xcconfig"; sourceTree = "<group>"; };
 		A766346F6EEBC1CC902B5629 /* Pods-SpotifyHelperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpotifyHelperTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpotifyHelperTests/Pods-SpotifyHelperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8893C791E7627E300C14FD3 /* Playlist.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Playlist.swift; path = Data/Playlist.swift; sourceTree = "<group>"; };
+		A8893C7D1E762E0000C14FD3 /* Fetchable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Fetchable.swift; path = Data/Fetchable.swift; sourceTree = "<group>"; };
 		A88985151E711F3A00D73420 /* SpotifyHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpotifyHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A88985181E711F3A00D73420 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A889851F1E711F3A00D73420 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -215,6 +223,8 @@
 			children = (
 				A8939D3F1E72106300871591 /* Track.swift */,
 				A8939D471E72161800871591 /* Album .swift */,
+				A8893C791E7627E300C14FD3 /* Playlist.swift */,
+				A8893C7D1E762E0000C14FD3 /* Fetchable.swift */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -531,10 +541,12 @@
 				A8939D5B1E722D6700871591 /* ListItem.swift in Sources */,
 				A88985191E711F3A00D73420 /* AppDelegate.swift in Sources */,
 				A8939D371E71E9B600871591 /* MePlaylistAlbumViewController.swift in Sources */,
+				A8893C7E1E762E0000C14FD3 /* Fetchable.swift in Sources */,
 				A8939D3B1E71EA1E00871591 /* MainAPIClient.swift in Sources */,
 				A8939D2B1E712A9F00871591 /* LoginAPIClient.swift in Sources */,
 				A8939D651E722D7C00871591 /* LoginViewController.swift in Sources */,
 				A8939D401E72106300871591 /* Track.swift in Sources */,
+				A8893C7A1E7627E300C14FD3 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -547,10 +559,12 @@
 				A8939D491E72161800871591 /* Album .swift in Sources */,
 				A8939D411E72106300871591 /* Track.swift in Sources */,
 				A8939D381E71E9B600871591 /* MePlaylistAlbumViewController.swift in Sources */,
+				A8893C7F1E762E0000C14FD3 /* Fetchable.swift in Sources */,
 				A8939D621E722D6700871591 /* ListItemViewController.swift in Sources */,
 				A889852E1E711F3B00D73420 /* SpotifyHelperTests.swift in Sources */,
 				A8939D2C1E712A9F00871591 /* LoginAPIClient.swift in Sources */,
 				A8939D661E722D7C00871591 /* LoginViewController.swift in Sources */,
+				A8893C7B1E7627E300C14FD3 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -563,10 +577,12 @@
 				A8939D4A1E72161800871591 /* Album .swift in Sources */,
 				A8939D421E72106300871591 /* Track.swift in Sources */,
 				A8939D391E71E9B600871591 /* MePlaylistAlbumViewController.swift in Sources */,
+				A8893C801E762E0000C14FD3 /* Fetchable.swift in Sources */,
 				A8939D631E722D6700871591 /* ListItemViewController.swift in Sources */,
 				A88985391E711F3B00D73420 /* SpotifyHelperUITests.swift in Sources */,
 				A8939D2D1E712A9F00871591 /* LoginAPIClient.swift in Sources */,
 				A8939D671E722D7C00871591 /* LoginViewController.swift in Sources */,
+				A8893C7C1E7627E300C14FD3 /* Playlist.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

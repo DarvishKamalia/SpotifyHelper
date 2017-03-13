@@ -4,14 +4,7 @@ struct Album : ListItem {
     let name: String
     let artists: [String]
     let albumArtURL: String
-    
-    // MARK: - Initialization
-    
-    init(name: String, artists: [String], albumArtURL: String) {
-        self.name = name
-        self.artists = artists
-        self.albumArtURL = albumArtURL
-    }
+    let trackFetchURL: String
     
     // MARK: - ListItem properties 
     
