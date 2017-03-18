@@ -1,4 +1,5 @@
 import UIKit
+import SDWebImage
 
 fileprivate struct Constants {
     static let cellIdentifier = "ListItemCell"
@@ -57,8 +58,11 @@ class ListItemViewController: UITableViewController {
         cell.detailTextLabel?.font = UIFont(name: "Avenir-Light", size: 12)
         
         switch item.detailType {
-            case .image(let imageURL): cell.imageView?.image = UIImage(named: imageURL)
-            case .none: break
+            case .image(let imageURL):
+                let url = URL(string: imageURL)
+                cell.imageView?.sd_setImage(with: url, placeholderImage: UIImage(named: "warning")) // Use a random asset for placeholder for now
+            case .none:
+                break
         }
         
         return cell

@@ -19,14 +19,14 @@ class MePlaylistAlbumViewController: UITabBarController, ListItemViewControllerD
         client.fetch(request: trackFetchRequest) { tracks in
             self.tracksVC = ListItemViewController(items: tracks)
             self.tracksVC.delegate = self
-            self.tracksVC.tabBarItem = UITabBarItem(tabBarSystemItem: .favorites, tag: 1)
+            self.tracksVC.tabBarItem = UITabBarItem(title: "Tracks", image: nil, tag: 1)
             
             let albumFetchRequest = FetchRequest<Album>()
             
             self.client.fetch(request: albumFetchRequest) { albums in
                 self.albumVC = ListItemViewController(items: albums)
                 self.albumVC.delegate = self
-                self.albumVC.tabBarItem = UITabBarItem(tabBarSystemItem: .history, tag: 2)
+                self.albumVC.tabBarItem = UITabBarItem(title: "Albums", image: nil, tag: 2)
                 self.viewControllers = [self.tracksVC, self.albumVC]
             }
 

@@ -8,7 +8,7 @@ target 'SpotifyHelper' do
   # Pods for SpotifyHelper
    pod 'Alamofire', '~> 4.4'
    pod 'SwiftyJSON'
-
+   pod 'SDWebImage', '~> 3.8' 
   target 'SpotifyHelperTests' do
     inherit! :search_paths
     # Pods for testing
