@@ -17,7 +17,7 @@ class LoginViewController: UIViewController {
     // MARK: - Actions 
     
     @IBAction func loginButton(_ sender: Any) {
-        LoginAPIClient().login()
+        LoginAPIClient.login()
     }
 }
 
